@@ -45,7 +45,8 @@ const Aside = ({
         setOpen(open)
     }
 
-    const handlePokemonSelected = (id: number, isReady: boolean) => {
+    const handlePokemonSelected = (e: any, id: number, isReady: boolean) => {
+        e.preventDefault()
         dispatch(selectPokemon({ id, isReady }))
     }
 
@@ -108,7 +109,7 @@ const Aside = ({
                                                     id={item.id}
                                                     name={item.name}
                                                     ready={item.isReady}
-                                                    onReady={() => handlePokemonSelected(item.id, !item.isReady)} />
+                                                    onReady={(e: any) => handlePokemonSelected(e, item.id, !item.isReady)} />
                                             </Grid>
                                         ))}
                                 </React.Fragment>
@@ -146,7 +147,7 @@ const Aside = ({
                                                     id={item.id}
                                                     name={item.name}
                                                     ready={item.isReady}
-                                                    onReady={() => handlePokemonSelected(item.id, !item.isReady)} />
+                                                    onReady={(e: any) => handlePokemonSelected(e, item.id, !item.isReady)} />
                                             </Grid>
                                         ))}
                                 </React.Fragment>
